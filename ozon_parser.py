@@ -15,7 +15,7 @@ def get_html(url,params = None):  #получение страницы
 
 def get_pages_count(html):
     soup = BeautifulSoup(html, 'html.parser')
-    pages = soup.find_all('a', class_='yq3')
+    pages = soup.find_all('a', class_='ur')
     if pages:
         return int(pages[-2].get_text())
     else:
@@ -25,13 +25,13 @@ def get_pages_count(html):
 
 def get_content(html):  #создание списка
     soup = BeautifulSoup(html, 'html.parser')
-    items = soup.find_all('div', class_="y6h hy7")
+    items = soup.find_all('div', class_="j0i ij1")
     coffe_machine = []
     for item in items:
         coffe_machine.append({
-            'title':item.find('a', class_='tile-hover-target w9h').get_text(),
-            'link':HOST+item.find('a', class_='tile-hover-target w9h').get('href'),
-            'price':item.find('div',class_='ui-q0').get_text().replace('\u2009',' ').replace(' ','').replace('₽','₽ ')
+            'title':item.find('a', class_='tile-hover-target hy9').get_text(),
+            'link':HOST+item.find('a', class_='tile-hover-target hy9').get('href'),
+            'price':item.find('div',class_='ui-n9').get_text().replace('\u2009',' ').replace(' ','').replace('₽','₽ ')
         })
     return coffe_machine
 
